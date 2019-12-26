@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+:root {
+    --color-white: #fff;
+    --color-white-soft: #f4f4f4;
+    --color-dark: #000;
+    --color-dark-soft: #232020;
+    --color-main: #ff7315;
+    --color-main-bright: #ff9047;
+}
+
 html {
     font-size: 62.5%; 
 }
@@ -12,3 +21,41 @@ body {
     font-family: 'Kulim Park', sans-serif;
 }
 
+/*************UTILITY CLASSES ***************/
+/* Text */
+.u-center-text {
+    text-align: center;
+}
+
+.u-capitalize-text {
+    text-transform: capitalize;
+}
+
+.text-main {
+    font-family: 'Caveat', cursive;
+    color: var(--color-main);
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+/* Margins */
+.m-top {
+    margin-top: 1rem;
+}
+
+/* Display */
+.d-abs {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*************UTILITY CLASSES END***************/
