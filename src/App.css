@@ -55,7 +55,73 @@ body {
 
 .d-flex {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 /*************UTILITY CLASSES END***************/
+
+/***********NAVIGATION **************/
+.nav {
+    height: 10vh;
+    width: 100vw;
+    font-size: 3rem;
+    /* background-color: var(--color-dark-soft); */
+    background-color: transparent;
+}
+
+.nav__logo {
+    height: 100%;
+}
+
+.nav__logo-brand {
+    height: 5rem;
+    width: 5rem;
+    margin: 1.4rem 0 0 1rem;
+}
+
+.nav__routes {
+    height: 100%;
+    width: 50%;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+.nav__routes a {
+    font-family: 'Caveat', cursive;
+    text-decoration: none;
+    color: var(--color-dark-soft);
+}
+
+.fa-search {
+    margin-left: .8rem;
+}
+/***********NAVIGATION END**************/
+
+/**********BUTTON**********/
+.btn__bag {
+    height: 100%;
+    width: 25%;
+    font-size: 3rem;
+    padding: .5rem 1.5rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: transform .2s ease-in;
+}
+
+.btn__bag:hover {
+    transform: rotateX(180deg);
+}
+
+.btn__bag:focus {
+    outline: none;
+}
+
+.main {
+    color: var(--color-main);
+}
+
+.alt {
+    color: var(--color-dark-soft);
+}
+/**********BUTTON END**********/

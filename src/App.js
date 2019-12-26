@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
-import {Switch, Route, Link} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import Bag from './components/Bag';
 import NotFound from './components/NotFound';
 import ClothesList from './components/ClothesList';
 import Details from './components/Details';
-import Title from './Title'
+import Navigation from './UI/Navigation/Navigation';
+import Title from './UI/Title'
 import './App.css';
 
 class App extends Component {
   render () {
     return (
       <React.Fragment>
+        <Navigation />
         <Switch>
           <Route path={'/'} exact component={ClothesList}/>
           <Route path={'/details'} component={Details}/>
