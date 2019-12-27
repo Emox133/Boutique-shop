@@ -5,11 +5,9 @@ const Button = (props) => {
     // {props.type == 'danger' ? classList.push('danger') : props.type == 'success' ? classList.push('success') : null}
 
     return (
-        <div>
-            <button className={['btn__bag', props.btnType].join(' ')}>
+            <button className={[props.name, props.btnType].join(' ')}>
                 {props.children}
             </button>
-        </div>
     )
 }
 

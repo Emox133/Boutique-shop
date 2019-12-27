@@ -19,6 +19,7 @@ html {
 
 body {
     font-family: 'Kulim Park', sans-serif;
+    overflow: hidden;
 }
 
 /*************UTILITY CLASSES ***************/
@@ -47,7 +48,8 @@ body {
 }
 
 /* Display */
-.d-abs {
+.p-abs {
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -58,13 +60,32 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
+.p-rel {
+    position: relative;
+}
 /*************UTILITY CLASSES END***************/
+
+/**************ANIMATIONS***************/
+@keyframes pulsate-bck {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+/**************ANIMATIONS END***************/
 
 /***********NAVIGATION **************/
 .nav {
     height: 10vh;
     width: 100vw;
     font-size: 3rem;
+    justify-content: space-evenly;
     /* background-color: var(--color-dark-soft); */
     background-color: transparent;
 }
@@ -92,7 +113,7 @@ body {
     color: var(--color-dark-soft);
 }
 
-.fa-search {
+i {
     margin-left: .8rem;
 }
 /***********NAVIGATION END**************/
@@ -101,12 +122,13 @@ body {
 .btn__bag {
     height: 100%;
     width: 25%;
+    color: var(--color-dark-soft);
     font-size: 3rem;
     padding: .5rem 1.5rem;
     border: none;
     background: transparent;
     cursor: pointer;
-    transition: transform .2s ease-in;
+    transition: transform .5s ease-in;
 }
 
 .btn__bag:hover {
@@ -119,9 +141,45 @@ body {
 
 .main {
     color: var(--color-main);
+    background-color: var(--color-dark);
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 3px;
+    outline: none;
 }
 
 .alt {
-    color: var(--color-dark-soft);
+    color: var(--color-white);
+    background-color: var(--color-main);
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 3px;
+    outline: none;
 }
 /**********BUTTON END**********/
+
+/*********COCKPIT COMPONENT *********/
+.cockpit {
+    height: calc(80vh - 10vh);
+    margin: 5vh;
+    background: center / 80% fixed no-repeat url('https://source.unsplash.com/1280x768/daily?fashion-shirt');
+}
+
+.cockpit__content {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
+
+.cockpit__button {
+    font-size: 2rem;
+    margin-top: 2rem;
+    animation: pulsate-bck 1s ease-in-out infinite both;
+    cursor: pointer;
+}
+/*********COCKPIT COMPONENT END*********/
+
+/*********DISCOUNT COMPONENT ************/
+
+/*********DISCOUNT COMPONENT END************/
