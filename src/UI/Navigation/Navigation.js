@@ -23,7 +23,7 @@ const Navigation = () => {
                 <li className={'nav__route-home u-capitalize-text'}>
                     <Link to="/discount">
                             discount
-                        <i class="fas fa-search-dollar"></i>
+                        <i className="fas fa-search-dollar"></i>
                     </Link>
                 </li>
             </ul>
