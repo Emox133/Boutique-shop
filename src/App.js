@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Switch, Route} from 'react-router-dom'
 import Bag from './components/Bag/Bag'
 import NotFound from './components/NotFound'
-import ClothesList from './components/ClothesList'
+import ClothesList from './components/Clothes/ClothesList'
 import Details from './components/Details'
 import Discount from './components/Discount/Discount'
 import Navigation from './UI/Navigation/Navigation'
