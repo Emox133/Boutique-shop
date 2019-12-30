@@ -18,7 +18,6 @@ const Bag = () => {
 
             {bag.length > 0 ? bagContent = (
                 <React.Fragment>
-                    <Title modify={'u-capitalize-text u-center-text'} name="your" title="bag"/>
                     <BagList data={value}/>
                 </React.Fragment>) : bagContent = <BagEmpty />}
                    

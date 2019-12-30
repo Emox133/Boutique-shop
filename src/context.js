@@ -89,7 +89,7 @@ class ClothesProvider extends Component {
                 products: [...copyProducts],
                 bag: [...this.state.bag, product]
             }
-        }) //() => console.log({...this.state}))
+        }, this.calcTotals) //() => console.log({...this.state}))
     };
 
     // Delete items from bag method
@@ -219,6 +219,17 @@ class ClothesProvider extends Component {
         }
     };
 
+    // Method thad clears all products in the bag
+    clearBag = () => {
+        this.setState(() => {
+            return {
+                bag: []
+            }
+        },() =>  
+        this.setProducts(), 
+        this.calcTotals())
+    };
+
     render() {
         return(
             <ClothesContext.Provider value={{
@@ -226,7 +237,8 @@ class ClothesProvider extends Component {
                 addToBag: this.addToBag,
                 removeFromBag: this.removeFromBag,
                 increase: this.increase,
-                decrease: this.decrease
+                decrease: this.decrease,
+                clearBag: this.clearBag
             }}>
                 {this.props.children}
             </ClothesContext.Provider>

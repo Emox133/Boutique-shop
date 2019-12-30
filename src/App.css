@@ -329,13 +329,13 @@ i {
     height: 100%;
     width: 100%;
     /* border: 1px solid #000; */
-    box-shadow: .5rem .5rem 1.5rem rgba(0, 0, 0, .8);
-    transition: transform .5s .1s ease-in;
-    background-color: var(--color-white-soft);
+    box-shadow: .5rem .5rem 1.5rem rgba(0, 0, 0, .6);
+    transition: all .5s .1s ease-in;
 }
 
 .clothes__product:hover {
     transform: scale(.95);
+    box-shadow: .5rem .5rem 2rem rgba(0, 0, 0, 1);
 }
 
 .clothes__image-container {
@@ -351,7 +351,6 @@ i {
     border-radius: 3px;
     background-size: cover;
 }
-
 
 .clothes__text {
     height: 10%;
@@ -384,19 +383,19 @@ i {
 
 /**********BAG COMPONENTS************/
 .bag__container {
-    height: calc(100vh - 13vh);
+    height: calc(100vh - 10vh);
     width: 100vw;
     font-family: 'Caveat', cursive;
     font-size: .8rem;
-    padding: 3vh 3vh 0;
+    /* padding: 3vh 3vh 0; */
     overflow: scroll;
     /* TESTING */
-    background-color: var(--color-dark-soft);
-    color: var(--color-white);
+    /* background-color: var(--color-dark-soft); */
+    color: var(--color-dark);
 }
 
 .bag__item {
-    color: var(--color-white);
+    color: var(--color-dark);
     letter-spacing: .2em;
     display: grid;
     grid-template-rows: repeat(auto-fit, minmax(10rem, min-content));
@@ -406,7 +405,7 @@ i {
     justify-items: center;
     margin: .5rem 0;
     /* grid-gap: 2rem; */
-    border: 1px solid var(--color-white-soft);
+    /* border: 1px solid var(--color-white-soft); */
 }
 
 .bag__item-image {
@@ -428,7 +427,18 @@ i {
 }
 
 .bag__payment {
-    flex-direction: column;
-    align-items: flex-end;
+    height: 25%;
+    text-align: right;
+    margin-right: 1rem;
+}
+
+.bag__payment > * {
+    padding-top: .8rem;
+}
+
+.bag__empty i, .smile {
+    margin: 0;
+    color: var(--color-main);
+    background-color: var(--color-white);
 }
 /**********BAG COMPONENTS END************/
