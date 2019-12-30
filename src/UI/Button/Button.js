@@ -5,7 +5,7 @@ const Button = (props) => {
     // {props.type == 'danger' ? classList.push('danger') : props.type == 'success' ? classList.push('success') : null}
 
     return (
-            <button className={[props.name, props.btnType].join(' ')}>
+            <button className={[props.name, props.btnType].join(' ')} disabled={props.disabled} onClick={props.clicked}>
                 {props.children}
             </button>
     )

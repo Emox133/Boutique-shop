@@ -11,7 +11,7 @@ export const items = [
             image: {
                 fields: {
                     file: {
-                        url: './assets/images/black-t-shirt.jpg'
+                        url: 'images/black-t-shirt.jpg'
                     }
                 }
             },
@@ -35,7 +35,7 @@ export const items = [
             image: {
                 fields: {
                     file: {
-                        url: './assets/images/black-coat.jpg'
+                        url: 'images/black-coat.jpg'
                     }
                 }
             },
@@ -59,7 +59,7 @@ export const items = [
             image: {
                 fields: {
                     file: {
-                        url: './assets/images/black-shoes.jpg'
+                        url: 'images/black-shoes.jpg'
                     }
                 }
             },
@@ -83,7 +83,7 @@ export const items = [
             image: {
                 fields: {
                     file: {
-                        url: './assets/images/blue-shoes.jpg'
+                        url: 'images/blue-shoes.jpg'
                     }
                 }
             },
@@ -103,11 +103,11 @@ export const items = [
         fields: {
             title: 'Brown coat',
             price: 50,
-            material: 'elastin and cotton',
+            material: 'elastin',
             image: {
                 fields: {
                     file: {
-                        url: './assets/images/brown-coat.jpg'
+                        url: 'images/brown-coat.jpg'
                     }
                 }
             },
@@ -131,7 +131,7 @@ export const items = [
             image: {
                 fields: {
                     file: {
-                        url: './assets/images/brown-hat.jpg'
+                        url: 'images/brown-hat.jpg'
                     }
                 }
             },
@@ -151,11 +151,11 @@ export const items = [
         fields: {
             title: 'Crimson shirt',
             price: 90,
-            material: 'elastin and cotton',
+            material: 'elastin',
             image: {
                 fields: {
                     file: {
-                        url: './assets/images/crimson-shirt.jpg'
+                        url: 'images/crimson-shirt.jpg'
                     }
                 }
             },
@@ -179,7 +179,7 @@ export const items = [
             image: {
                 fields: {
                     file: {
-                        url: './assets/images/white-t-shirt.jpg'
+                        url: 'images/white-t-shirt.jpg'
                     }
                 }
             },

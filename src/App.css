@@ -46,13 +46,8 @@ body {
 }
 
 .title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 300;
-}
-
-/* Margins */
-.m-top {
-    margin-top: 1rem;
 }
 
 /* Display */
@@ -86,6 +81,7 @@ body {
       transform: scale(1);
     }
   }
+  
 /**************ANIMATIONS END***************/
 
 /***********NAVIGATION **************/
@@ -96,6 +92,7 @@ body {
     justify-content: space-evenly;
     /* background-color: var(--color-dark-soft); */
     background-color: transparent;
+    border-bottom: 1px solid #000;
 }
 
 .nav__logo {
@@ -154,6 +151,7 @@ i {
     border: none;
     border-radius: 3px;
     outline: none;
+    cursor: pointer;
 }
 
 .alt {
@@ -163,6 +161,7 @@ i {
     border: none;
     border-radius: 3px;
     outline: none;
+    cursor: pointer;
 }
 
 /**********BUTTON END**********/
@@ -171,7 +170,7 @@ i {
 .cockpit {
     height: calc(80vh - 10vh);
     margin: 5vh;
-    background: center / 80% fixed no-repeat url('https://source.unsplash.com/1280x768/daily?fashion-shirt');
+    background: center / cover fixed no-repeat url('https://source.unsplash.com/1280x768/daily?clothes-trending');
 }
 
 .cockpit__content {
@@ -233,8 +232,10 @@ i {
     justify-content: center;
     position: absolute;
     top: 70%;
-    left: calc(50% - 3rem);
+    left: 50%;
     transform: translate(-50%, -70%);
+    /* left: calc(50% - 3rem); */
+    /* transform: translate(calc(-50% + 3rem), -70%); */
     /* border: 1px solid #fff; */
 }
 
@@ -292,7 +293,7 @@ i {
     color: var(--color-white);
     position: absolute;
     top: 85%;
-    left: calc(50% - 3rem);
+    left: 50%;
     transform: translate(-50%, -85%);
 }
 
@@ -306,7 +307,128 @@ i {
     width: 80%;
     margin-bottom: 2rem;
 }
-
 /* DISCOUNT PRICE COMPONENT END*/
-
 /*********DISCOUNT COMPONENT END************/
+
+/********CLOTHES COMPONENTS***********/
+.clothes {
+    height: calc(100vh - 11vh);
+    width: 100vw;
+    /* margin-top: 3vh; */
+    padding: 3vh 3vh 0;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(20rem, min-content));
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 30rem));
+    grid-gap: 2rem;
+    justify-content: center;
+    overflow: scroll;
+    /* background-color: var(--color-main); */
+}
+
+.clothes__product {
+    height: 100%;
+    width: 100%;
+    /* border: 1px solid #000; */
+    box-shadow: .5rem .5rem 1.5rem rgba(0, 0, 0, .8);
+    transition: transform .5s .1s ease-in;
+    background-color: var(--color-white-soft);
+}
+
+.clothes__product:hover {
+    transform: scale(.95);
+}
+
+.clothes__image-container {
+    position: relative;
+    height: 60%;
+    width: 100%;
+}
+
+
+.clothes__image-container img{
+    height: 100%;
+    width: 100%;
+    border-radius: 3px;
+    background-size: cover;
+}
+
+
+.clothes__text {
+    height: 10%;
+    /* align-items: flex-start; */
+    /* flex-direction: column; */
+    justify-content: space-around;
+    padding: 1rem;
+    border-bottom: 1px solid #000;
+}
+
+.clothes__title,.clothes__price,.clothes__manufacturer {
+    font-size: 1.5rem;
+}
+
+.clothes__btn {
+    font-size: 1.3rem;
+    position: absolute;
+    top: 73%;
+    left: 60%;
+}
+
+.clothes__btn--inBag {
+    font-size: 1.3rem;
+    position: absolute;
+    top: 73%;
+    left: 75%;
+    cursor: not-allowed;
+}
+/********CLOTHES COMPONENTS END***********/
+
+/**********BAG COMPONENTS************/
+.bag__container {
+    height: calc(100vh - 13vh);
+    width: 100vw;
+    font-family: 'Caveat', cursive;
+    font-size: .8rem;
+    padding: 3vh 3vh 0;
+    overflow: scroll;
+    /* TESTING */
+    background-color: var(--color-dark-soft);
+    color: var(--color-white);
+}
+
+.bag__item {
+    color: var(--color-white);
+    letter-spacing: .2em;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(10rem, min-content));
+    grid-template-columns: repeat(5, minmax(min-content, 1fr));
+    grid-auto-flow: column;
+    align-items: center;
+    justify-items: center;
+    margin: .5rem 0;
+    /* grid-gap: 2rem; */
+    border: 1px solid var(--color-white-soft);
+}
+
+.bag__item-image {
+    height: 100%;
+    width: 100%;
+}
+
+.bag__item-count i {
+    margin: 0;
+    padding-top: 0 .5rem;
+    cursor: pointer;
+}
+
+.bag__item-clear {
+    font-size: 2rem;
+    color: var(--color-white-soft);
+    background-color: crimson;
+    padding: 1rem 3rem;
+}
+
+.bag__payment {
+    flex-direction: column;
+    align-items: flex-end;
+}
+/**********BAG COMPONENTS END************/

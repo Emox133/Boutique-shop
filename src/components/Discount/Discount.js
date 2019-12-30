@@ -16,13 +16,13 @@ const Discount = () => {
            </article>
 
            <div className="discount__price-box">
-                <DiscountPrice count="0" sign="$" title="no money down"/>
+                <DiscountPrice count="50" sign="%" title="t-shirts"/>
                 <hr className="discount__line--rotated"/>
 
-                <DiscountPrice count="58" sign="$" title="for 39 months"/>
+                <DiscountPrice count="20" sign="%" title="coats"/>
                 <hr className="discount__line--rotated"/>
 
-                <DiscountPrice count="0" sign="%" title="apr financing"/>
+                <DiscountPrice count="30" sign="%" title="shoes"/>
            </div>
 
            <div className="discount__footer d-flex">
