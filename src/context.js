@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react'
 import {items} from './clothes'
 
@@ -28,7 +29,7 @@ class ClothesProvider extends Component {
     */
 
     // TODO
-    // 1. Implement local storage 
+    // 1. Implement local storage  //DONE
     // 2. Create hero image query changer method
     // 3. Add more pages
     state = {
@@ -44,6 +45,8 @@ class ClothesProvider extends Component {
         
         // Change image query every day 
         
+        // Local storage method
+        this.persistData()
     }
 
     setProducts = async () => {
@@ -65,6 +68,25 @@ class ClothesProvider extends Component {
         return destructuredObj;
     
 };
+
+    // Persist data method (local storage)
+    persistData = () => {
+        // 1. Check if there is a bag arr in local storage and assign it to items arr
+        let lsItems = JSON.parse(localStorage.getItem('bag'))
+
+        // 2. Get the arr from state
+        let copyBagArr = [...this.state.bag]
+        
+        // 3. Check if the arr is not empty
+        lsItems !== -1 ? copyBagArr.push(...lsItems) : null
+
+        // 4. Update the bag arr
+        this.setState(() => {
+            return {
+                bag: [...copyBagArr]
+            }
+        })
+    };
 
     // Method that select the given product and returns it
     getItem = (id) => {
@@ -91,13 +113,19 @@ class ClothesProvider extends Component {
         let price = product.price
         product.total = price
 
+        // 6. Make a copy of the bag arr
+        let copyBagArr = [...this.state.bag]
+
         // 6. Add the given product to the bag arr and update values
         this.setState(() => {
             return {
                 products: [...copyProducts],
                 bag: [...this.state.bag, product]
             }
-        }, this.calcTotals) //() => console.log({...this.state}))
+        }, 
+            localStorage.setItem('bag', JSON.stringify([...copyBagArr, product])),
+            this.calcTotals
+        ) //() => console.log({...this.state}))
     };
 
     // Delete items from bag method
@@ -127,8 +155,10 @@ class ClothesProvider extends Component {
                 bag: [...copyBag],
                 products: [...copyProducts]
             }
-        }, this.calcTotals) //() => console.log({...this.state}))
-
+        }, 
+        localStorage.removeItem('bag'),
+        localStorage.setItem('bag', JSON.stringify([...copyBag])),
+        this.calcTotals) //() => console.log({...this.state}))
     };
 
     // Get total values method
@@ -235,7 +265,8 @@ class ClothesProvider extends Component {
             }
         },() =>  
         this.setProducts(), 
-        this.calcTotals())
+        this.calcTotals(),
+        localStorage.removeItem('bag'))
     };
 
     render() {

@@ -14,11 +14,10 @@ const Bag = (props) => {
         {value => {
             let {bag} = value
             let bagContent 
-            console.log(props)
-            {bag.length > 0 ? bagContent = (
+            bag.length > 0 ? bagContent = (
                 <React.Fragment>
                     <BagList data={value} history={props.history}/>
-                </React.Fragment>) : bagContent = <BagEmpty />}
+                </React.Fragment>) : bagContent = <BagEmpty />
                    
             return bagContent
         }}
