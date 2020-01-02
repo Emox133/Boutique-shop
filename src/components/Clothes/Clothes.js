@@ -8,7 +8,7 @@ const Clothes = (props) => {
 return(
     <ClothesConsumer>
         {value => {
-            const {addToBag, removeFromBag} = value;
+            const {addToBag} = value;
 
             return (
                 <div className="clothes__product" id={id}>
@@ -30,7 +30,6 @@ return(
                         <h1 className="clothes__price">${price}</h1>
                         <h1 className="clothes__manufacturer">{manufacturer}</h1>
                     </div>
-                    {/* {console.log(props.product)} */}
                 </div>
         )
     }}

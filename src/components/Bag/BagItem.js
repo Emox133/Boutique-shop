@@ -6,14 +6,14 @@ const BagItem = (props) => {
 
     return (
             <div className="bag__item" id={items.id}>
-                <img src={items.image} className="bag__item-image"/>
+                <img src={items.image} alt="clothes" className="bag__item-image"/>
                     <h1 className="bag__item-title">{items.title}</h1>
                     <h1 className="bag__item-material">material: {items.material}</h1>
                     <h1 className="bag__item-count">count: 
                         <i className="fas fa-chevron-circle-left" onClick={() => decrease(items.id)}></i>
                             {items.count}
                         <i className="fas fa-chevron-circle-right" onClick={() => increase(items.id)}></i></h1>
-                <button onClick={() => removeFromBag(items.id)}>remove item</button>
+                <button className="alt u-capitalize-text" onClick={() => removeFromBag(items.id)}>remove item</button>
             </div>
     )
 }

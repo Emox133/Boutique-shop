@@ -2,23 +2,22 @@ import React from 'react'
 import {ClothesConsumer} from '../../context'
 import BagList from './BagList'
 import BagEmpty from './BagEmpty'
-import Title from '../../UI/Title'
 
 // ALT WAY OF GETTING BAG ITEMS
 // let bagItems;
 // {value.bag ? bagItems = value.bag : bagItems = []}
 // console.log(bagItems)
 
-const Bag = () => {
+const Bag = (props) => {
     return (
     <ClothesConsumer>
         {value => {
             let {bag} = value
             let bagContent 
-
+            console.log(props)
             {bag.length > 0 ? bagContent = (
                 <React.Fragment>
-                    <BagList data={value}/>
+                    <BagList data={value} history={props.history}/>
                 </React.Fragment>) : bagContent = <BagEmpty />}
                    
             return bagContent

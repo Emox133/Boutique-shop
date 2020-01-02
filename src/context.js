@@ -26,6 +26,11 @@ class ClothesProvider extends Component {
     }, [])
     console.log(reducedItems)
     */
+
+    // TODO
+    // 1. Implement local storage 
+    // 2. Create hero image query changer method
+    // 3. Add more pages
     state = {
         products: [],
         bag: [],
@@ -35,7 +40,10 @@ class ClothesProvider extends Component {
     }
 
     componentDidMount() {
-        this.setProducts();
+        this.setProducts()
+        
+        // Change image query every day 
+        
     }
 
     setProducts = async () => {

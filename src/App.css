@@ -387,7 +387,7 @@ i {
     width: 100vw;
     font-family: 'Caveat', cursive;
     font-size: .8rem;
-    /* padding: 3vh 3vh 0; */
+    padding: 3vh 10vh 0;
     overflow: scroll;
     /* TESTING */
     /* background-color: var(--color-dark-soft); */
@@ -441,4 +441,5 @@ i {
     color: var(--color-main);
     background-color: var(--color-white);
 }
+
 /**********BAG COMPONENTS END************/
