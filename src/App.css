@@ -9,9 +9,7 @@
     --color-white-soft: #f4f4f4;
     --color-dark: #000;
     --color-dark-soft: #232020;
-    /* --color-main: #ff7315; */
     --color-main: #EA384D;
-    /* --color-main-bright: #ff9047; */
     --color-main-bright: #D31027;
 }
 
@@ -53,13 +51,6 @@ body {
 }
 
 /* Display */
-.p-abs {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 .d-flex {
     display: flex;
     justify-content: space-between;
@@ -93,9 +84,6 @@ body {
     font-size: 2.5rem;
     justify-content: space-evenly;
     background-color: transparent;
-    /* TESTING */
-    /* background-color: var(--color-dark-soft); */
-    /* border-bottom: 1px solid #000; */
 }
 
 .nav__logo {
@@ -170,10 +158,12 @@ i {
 /**********BUTTON END**********/
 
 /*********COCKPIT COMPONENT *********/
+
 .cockpit {
-    height: calc(80vh - 10vh);
-    margin: 5vh;
+    height: calc(100vh - 10vh);
+    /* margin: 0; */
     background: center / cover fixed no-repeat url('https://source.unsplash.com/1280x768/daily?clothing');
+    clip-path: polygon(0 0, 100% 0, 100% 65vh, 0 100%);
 }
 
 .cockpit__content {
@@ -450,11 +440,11 @@ i {
 /**********MEDIA QUERIES**************/
 @media (max-width: 78.12em) { /*1250px*/
     html {
-        font-size: 43.7%; /*7px*/
+        font-size: 31.25%; /*7px*/
     }
 
     .discount__price-box {
-        height: 10%;
+        height: 5%;
     }
 
     .discount__count {
@@ -470,7 +460,7 @@ i {
     }
 
     .nav__logo-brand {
-        margin: 3.5rem 0 0 1rem;
+        margin: 4.5rem 0 0 1rem;
     }
 
     .discount__footer {
@@ -482,21 +472,38 @@ i {
     }
 
     .discount__footer-title {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 43.75em) { /*700px*/
-    html {
-        font-size: 43.7%; /*7px*/
+        display: inline;
+        font-size: 1.6rem;
     }
 }
 
 @media (max-width: 21.87em) { /*350px*/
     html {
-        font-size: 31.25%; /*4px*/
+        font-size: 25%; /*4px*/
+    }
+
+    .discount__count {
+        font-size: 5.5rem;
+    }
+
+    .discount__sign {
+        font-size: 2.3rem;
+    }
+
+    .discount__title {
+        font-size: 1.2rem;
+    }
+
+    .discount__footer {
+        top: 75%;
+    }
+
+    .discount__line--rotated {
+        height: 70%;
+    }
+
+    .nav__logo-brand {
+        margin: 5.5rem 0 0 1rem;
     }
 }
-
-
 /**********MEDIA QUERIES END**************/
