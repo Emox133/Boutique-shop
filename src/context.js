@@ -41,12 +41,14 @@ class ClothesProvider extends Component {
     }
 
     componentDidMount() {
-        this.setProducts()
+        // 1. Created lsProducts var AGAIN because it is an overkill to create a function 
+        // for this check
+        let lsProducts = JSON.parse(localStorage.getItem('products'))
         
-        // Change image query every day 
-        
-        // Local storage method
-        this.persistData()
+        // 2. Put the two functions that are in the "way" of each other
+        // in one check
+        lsProducts === null ? this.setProducts() : this.persistData()
+        console.log({...this.state})
     }
 
     setProducts = async () => {
@@ -66,23 +68,26 @@ class ClothesProvider extends Component {
         })
 
         return destructuredObj;
-    
 };
 
     // Persist data method (local storage)
     persistData = () => {
         // 1. Check if there is a bag arr in local storage and assign it to items arr
-        let lsItems = JSON.parse(localStorage.getItem('bag'))
+        let lsProducts = JSON.parse(localStorage.getItem('products'))
+        let lsBag = JSON.parse(localStorage.getItem('bag'))
 
         // 2. Get the arr from state
         let copyBagArr = [...this.state.bag]
+        let copyProductsArr = [...this.state.products]
         
         // 3. Check if the arr is not empty
-        lsItems !== -1 ? copyBagArr.push(...lsItems) : null
-
+        lsProducts ? copyProductsArr.push(...lsProducts) : null
+        lsBag ? copyBagArr.push(...lsBag) : null
+    
         // 4. Update the bag arr
         this.setState(() => {
             return {
+                products: [...copyProductsArr],
                 bag: [...copyBagArr]
             }
         })
@@ -124,6 +129,7 @@ class ClothesProvider extends Component {
             }
         }, 
             localStorage.setItem('bag', JSON.stringify([...copyBagArr, product])),
+            localStorage.setItem('products', JSON.stringify([...copyProducts])),
             this.calcTotals
         ) //() => console.log({...this.state}))
     };
@@ -156,6 +162,8 @@ class ClothesProvider extends Component {
                 products: [...copyProducts]
             }
         }, 
+        localStorage.removeItem('products'),
+        localStorage.setItem('products', JSON.stringify([...copyProducts])),
         localStorage.removeItem('bag'),
         localStorage.setItem('bag', JSON.stringify([...copyBag])),
         this.calcTotals) //() => console.log({...this.state}))
@@ -266,7 +274,8 @@ class ClothesProvider extends Component {
         },() =>  
         this.setProducts(), 
         this.calcTotals(),
-        localStorage.removeItem('bag'))
+        localStorage.removeItem('bag'),
+        localStorage.removeItem('products'))
     };
 
     render() {
