@@ -170,7 +170,7 @@ i {
 .cockpit {
     height: calc(80vh - 10vh);
     margin: 5vh;
-    background: center / cover fixed no-repeat url('https://source.unsplash.com/1280x768/daily?clothes-trending');
+    background: center / cover fixed no-repeat url('https://source.unsplash.com/1280x768/daily?clothing');
 }
 
 .cockpit__content {

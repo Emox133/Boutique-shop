@@ -70,7 +70,7 @@ class ClothesProvider extends Component {
         return destructuredObj;
 };
 
-    // Persist data method (local storage)
+    // Persist data methods (local storage) methods
     persistData = () => {
         // 1. Check if there is a bag arr in local storage and assign it to items arr
         let lsProducts = JSON.parse(localStorage.getItem('products'))
@@ -91,6 +91,23 @@ class ClothesProvider extends Component {
                 bag: [...copyBagArr]
             }
         })
+    };
+
+    addLocalStorage = (bag, products, product) => {
+        localStorage.setItem('bag', JSON.stringify([...bag, product])),
+        localStorage.setItem('products', JSON.stringify([...products]))
+    };
+
+    resetLocalStorage = (products, bag) => {
+        localStorage.removeItem('products'),
+        localStorage.setItem('products', JSON.stringify([...products])),
+        localStorage.removeItem('bag'),
+        localStorage.setItem('bag', JSON.stringify([...bag]))
+    };
+
+    removeLocalStorage = () => {
+        localStorage.removeItem('bag'),
+        localStorage.removeItem('products')
     };
 
     // Method that select the given product and returns it
@@ -127,12 +144,12 @@ class ClothesProvider extends Component {
                 products: [...copyProducts],
                 bag: [...this.state.bag, product]
             }
-        }, 
-            localStorage.setItem('bag', JSON.stringify([...copyBagArr, product])),
-            localStorage.setItem('products', JSON.stringify([...copyProducts])),
-            this.calcTotals
-        ) //() => console.log({...this.state}))
-    };
+        }, () => {
+            this.addLocalStorage(copyBagArr, copyProducts, product),
+            this.calcTotals()
+        }
+    )//() => console.log({...this.state}))            
+};
 
     // Delete items from bag method
     removeFromBag = (id) => {
@@ -161,12 +178,12 @@ class ClothesProvider extends Component {
                 bag: [...copyBag],
                 products: [...copyProducts]
             }
-        }, 
-        localStorage.removeItem('products'),
-        localStorage.setItem('products', JSON.stringify([...copyProducts])),
-        localStorage.removeItem('bag'),
-        localStorage.setItem('bag', JSON.stringify([...copyBag])),
-        this.calcTotals) //() => console.log({...this.state}))
+        }, () => {
+            this.resetLocalStorage(copyProducts, copyBag),
+            this.calcTotals
+        } 
+        
+        ) //() => console.log({...this.state}))
     };
 
     // Get total values method
@@ -274,8 +291,8 @@ class ClothesProvider extends Component {
         },() =>  
         this.setProducts(), 
         this.calcTotals(),
-        localStorage.removeItem('bag'),
-        localStorage.removeItem('products'))
+        this.removeLocalStorage()
+        )
     };
 
     render() {
