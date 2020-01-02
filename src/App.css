@@ -9,8 +9,10 @@
     --color-white-soft: #f4f4f4;
     --color-dark: #000;
     --color-dark-soft: #232020;
-    --color-main: #ff7315;
-    --color-main-bright: #ff9047;
+    /* --color-main: #ff7315; */
+    --color-main: #EA384D;
+    /* --color-main-bright: #ff9047; */
+    --color-main-bright: #D31027;
 }
 
 html {
@@ -90,9 +92,10 @@ body {
     width: 100vw;
     font-size: 2.5rem;
     justify-content: space-evenly;
-    /* background-color: var(--color-dark-soft); */
     background-color: transparent;
-    border-bottom: 1px solid #000;
+    /* TESTING */
+    /* background-color: var(--color-dark-soft); */
+    /* border-bottom: 1px solid #000; */
 }
 
 .nav__logo {
@@ -441,5 +444,8 @@ i {
     color: var(--color-main);
     background-color: var(--color-white);
 }
-
 /**********BAG COMPONENTS END************/
+
+/**********MEDIA QUERIES**************/
+
+/**********MEDIA QUERIES END**************/

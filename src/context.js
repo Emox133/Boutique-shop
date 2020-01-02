@@ -48,7 +48,6 @@ class ClothesProvider extends Component {
         // 2. Put the two functions that are in the "way" of each other
         // in one check
         lsProducts === null ? this.setProducts() : this.persistData()
-        console.log({...this.state})
     }
 
     setProducts = async () => {
@@ -90,7 +89,7 @@ class ClothesProvider extends Component {
                 products: [...copyProductsArr],
                 bag: [...copyBagArr]
             }
-        })
+        }, () => this.calcTotals())
     };
 
     addLocalStorage = (bag, products, product) => {
@@ -180,7 +179,7 @@ class ClothesProvider extends Component {
             }
         }, () => {
             this.resetLocalStorage(copyProducts, copyBag),
-            this.calcTotals
+            this.calcTotals()
         } 
         
         ) //() => console.log({...this.state}))
@@ -247,7 +246,11 @@ class ClothesProvider extends Component {
             return {
                 bag: [...copyBag]
             }
-        }, this.calcTotals)
+        }, 
+        localStorage.removeItem('bag'),
+        localStorage.setItem('bag', JSON.stringify([...copyBag])),
+        this.calcTotals()
+        )
     };
 
     // Method that decreases our counts 
@@ -278,9 +281,14 @@ class ClothesProvider extends Component {
                 return {
                     bag: [...copyBag]
                 }
-            }, this.calcTotals)
-        }
-    };
+            }, () => {
+                localStorage.removeItem('bag'),
+                localStorage.setItem('bag', JSON.stringify([...copyBag])),
+                this.calcTotals()
+            }
+        )
+    }
+};
 
     // Method thad clears all products in the bag
     clearBag = () => {
