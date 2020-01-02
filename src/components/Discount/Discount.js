@@ -27,7 +27,7 @@ const Discount = () => {
 
            <div className="discount__footer d-flex">
                 <hr className="discount__line--horizontal"/>
-                <h1 className="discount__footer-title">Peloton Membership Separate</h1>
+                <h1 className="discount__footer-title">Boutique VIP Membership</h1>
            </div>
        </section>
     )

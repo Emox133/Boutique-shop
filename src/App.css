@@ -448,11 +448,55 @@ i {
 /**********BAG COMPONENTS END************/
 
 /**********MEDIA QUERIES**************/
-@media (max-width: 700px) {
+@media (max-width: 78.12em) { /*1250px*/
+    html {
+        font-size: 43.7%; /*7px*/
+    }
+
+    .discount__price-box {
+        height: 10%;
+    }
+
+    .discount__count {
+        font-size: 5rem;
+    }
+
+    .discount__sign {
+        font-size: 2rem;
+    }
+
+    .discount__title {
+        font-size: 1.2rem;
+    }
+
+    .nav__logo-brand {
+        margin: 3.5rem 0 0 1rem;
+    }
+
+    .discount__footer {
+        top: 76%;
+    }
+
+    .discount__line--rotated {
+        height: 70%;
+    }
+
+    .discount__footer-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 43.75em) { /*700px*/
     html {
         font-size: 43.7%; /*7px*/
     }
 }
 
-/* @media (max-width: ) */
+@media (max-width: 21.87em) { /*350px*/
+    html {
+        font-size: 31.25%; /*4px*/
+    }
+}
+
+
 /**********MEDIA QUERIES END**************/
