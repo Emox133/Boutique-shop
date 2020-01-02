@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { Component } from 'react'
-import {items} from './clothes'
+var contentful = require('contentful')
+// import {items} from './clothes'
 
 const ClothesContext = React.createContext();
 
@@ -51,22 +52,32 @@ class ClothesProvider extends Component {
     }
 
     setProducts = async () => {
-        // 3.Example three, example that I used for this project
-        let destructuredObj = [...items];
-
-        destructuredObj = destructuredObj.map(item => { 
-            const {id} = item.sys;
-            const {title, price, material, count, manufacturer, total, category, inBag} = item.fields;
-            const image = item.fields.image.fields.file.url;
-
-            return {id, title, price, material, count,manufacturer, total,category, inBag, image};
+        var client = contentful.createClient({
+            space: 'kni3brzz1f5j',
+            accessToken: 'I_qPrMW7zrsCZGvdscv3uVR3cJC__aQbq14DmZvVgz0'
         });
 
-        this.setState(() => {
-            return {products: destructuredObj}
-        })
+        client.getEntries({
+            'content_type': 'boutiqueEcommerce'
+          })
+          .then(res => {
+               // 3.Example three, example that I used for this project
+                let destructuredObj = [...res.items];
+                
+                destructuredObj = destructuredObj.map(item => { 
+                    const {id} = item.sys;
+                    const {title, price, material, count, manufacturer, total, category, inBag} = item.fields;
+                    const image = item.fields.image.fields.file.url;
 
-        return destructuredObj;
+                    return {id, title, price, material, count,manufacturer, total,category, inBag, image};
+                });
+
+                this.setState(() => {
+                    return {products: destructuredObj}
+                })
+
+                return destructuredObj;
+          }).catch(err => console.log(err))  
 };
 
     // Persist data methods (local storage) methods
