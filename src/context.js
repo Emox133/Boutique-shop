@@ -214,7 +214,6 @@ class ClothesProvider extends Component {
     calcTotals = () => {
         // 1. Call our method to get totals
         const totals = this.getTotals()
-        console.log(totals)
 
         this.setState({
                 bagSubTotal: totals.subTotal,

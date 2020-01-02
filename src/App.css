@@ -220,6 +220,7 @@ i {
     animation: pulsate-bck 1s ease-in-out infinite both;
     text-transform: capitalize;
     transition: padding .5s ease-out;
+    outline: none;
 }
 
 .discount__button:hover {
@@ -331,7 +332,7 @@ i {
 .clothes__product {
     height: 100%;
     width: 100%;
-    /* border: 1px solid #000; */
+    background-color: var(--color-white);
     box-shadow: .5rem .5rem 1.5rem rgba(0, 0, 0, .6);
     transition: all .5s .1s ease-in;
 }
@@ -361,7 +362,7 @@ i {
     /* flex-direction: column; */
     justify-content: space-around;
     padding: 1rem;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px dashed #000;
 }
 
 .clothes__title,.clothes__price,.clothes__manufacturer {
@@ -447,5 +448,11 @@ i {
 /**********BAG COMPONENTS END************/
 
 /**********MEDIA QUERIES**************/
+@media (max-width: 700px) {
+    html {
+        font-size: 43.7%; /*7px*/
+    }
+}
 
+/* @media (max-width: ) */
 /**********MEDIA QUERIES END**************/
