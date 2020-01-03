@@ -19,7 +19,7 @@ const Discount = () => {
                 <DiscountPrice count="50" sign="%" title="t-shirts"/>
                 <hr className="discount__line--rotated"/>
 
-                <DiscountPrice count="20" sign="%" title="coats"/>
+                <DiscountPrice count="20" sign="%" title="jackets"/>
                 <hr className="discount__line--rotated"/>
 
                 <DiscountPrice count="30" sign="%" title="shoes"/>
