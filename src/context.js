@@ -53,8 +53,8 @@ class ClothesProvider extends Component {
 
     setProducts = async () => {
         var client = contentful.createClient({
-            space: 'kni3brzz1f5j',
-            accessToken: 'I_qPrMW7zrsCZGvdscv3uVR3cJC__aQbq14DmZvVgz0'
+            space: process.env.CONTENTFUL_SPACE,
+            accessToken: process.env.CONTENTFUL_API_KEY
         });
 
         client.getEntries({
