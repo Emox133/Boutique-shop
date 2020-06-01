@@ -34,6 +34,6 @@
     ]
   },
   "devDependencies": {
-    "contentful": "^7.11.3"
+    "contentful": "^7.14.4"
   }
 }
