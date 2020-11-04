@@ -6,7 +6,6 @@ import BagEmpty from './BagEmpty'
 // ALT WAY OF GETTING BAG ITEMS
 // let bagItems;
 // {value.bag ? bagItems = value.bag : bagItems = []}
-// console.log(bagItems)
 
 const Bag = (props) => {
     return (
