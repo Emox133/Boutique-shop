@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { Component } from 'react'
 var contentful = require('contentful')
 // import {items} from './clothes'
