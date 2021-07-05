@@ -18,7 +18,7 @@ html {
 }
 
 body {
-    /* font-family: 'Kulim Park', sans-serif; */
+    font-family: 'Kulim Park', sans-serif;
     overflow: hidden;
 }
 
@@ -37,7 +37,7 @@ body {
 }
 
 .text-main {
-    font-family: 'Caveat', cursive;
+    /* font-family: 'Caveat', cursive; */
     color: var(--color-main);
 }
 
@@ -104,7 +104,7 @@ body {
 }
 
 .nav__routes a {
-    font-family: 'Caveat', cursive;
+    /* font-family: 'Caveat', cursive; */
     text-decoration: none;
     color: var(--color-dark-soft);
 }
@@ -379,7 +379,7 @@ i {
 .bag__container {
     height: calc(100vh - 10vh);
     width: 100vw;
-    font-family: 'Caveat', cursive;
+    /* font-family: 'Caveat', cursive; */
     font-size: .8rem;
     padding: 3vh 10vh 0;
     overflow: scroll;
