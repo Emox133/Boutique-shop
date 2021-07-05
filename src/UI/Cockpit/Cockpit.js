@@ -8,11 +8,11 @@ const Cockpit = () => {
     return (
         <section className="cockpit p-rel">
             <div className="cockpit__content u-center-text">
-                <Title modify="u-center-text u-capitalize-text" name="Welcome to" title="boutique de jeur"/>
+                <Title modify="u-center-text u-capitalize-text" name="Primjer" title="Web Prodavnice"/>
 
             <Link to="/clothes">
                 <Button btnType="main" name="cockpit__button">
-                    Shop now
+                    Kupovina
                 </Button>
             </Link>
             </div>

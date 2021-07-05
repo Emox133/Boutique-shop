@@ -9,7 +9,7 @@ const BagList = (props) => {
 
     return (
         <div className="bag__container u-capitalize-text">
-            <Title modify={'u-capitalize-text u-center-text'} name="your" title="bag" after={<i className="fas fa-smile-beam smile"></i>}/>
+            <Title modify={'u-capitalize-text u-center-text'} name="Vaša" title="Korpa" after={<i className="fas fa-smile-beam smile"></i>}/>
             {bag.map(items => {
                 return <BagItem key={items.id} items={items} value={props.data}/>
             })}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
+import {items} from './clothes'
 var contentful = require('contentful')
-// import {items} from './clothes'
 
 const ClothesContext = React.createContext();
 
@@ -33,7 +33,7 @@ class ClothesProvider extends Component {
     // 2. Create hero image query changer method
     // 3. Add more pages
     state = {
-        products: [],
+        products: items,
         bag: [],
         bagSubTotal: 0,
         bagTax: 0,
@@ -52,8 +52,8 @@ class ClothesProvider extends Component {
 
     setProducts = async () => {
         var client = contentful.createClient({
-            space: process.env.REACT_APP_CONTENTFUL_SPACE,
-            accessToken: process.env.REACT_APP_CONTENTFUL_API_KEY
+            space: 'BoutiqueEccomerce',
+            accessToken: 'F1_9UN8A7Y6oZTcML5o0syQJMRAcBDSI2nLBcYSCtNw'
         });
 
         client.getEntries({
@@ -90,8 +90,10 @@ class ClothesProvider extends Component {
         let copyProductsArr = [...this.state.products]
         
         // 3. Check if the arr is not empty
-        lsProducts ? copyProductsArr.push(...lsProducts) : null
-        lsBag ? copyBagArr.push(...lsBag) : null
+        if(!lsProducts) return 
+        // lsProducts ? copyProductsArr.push(...lsProducts) : null
+        copyProductsArr.push(...lsProducts)
+        // lsBag ? copyBagArr.push(...lsBag) : null
     
         // 4. Update the bag arr
         this.setState(() => {
@@ -103,20 +105,21 @@ class ClothesProvider extends Component {
     };
 
     addLocalStorage = (bag, products, product) => {
-        localStorage.setItem('bag', JSON.stringify([...bag, product])),
-        localStorage.setItem('products', JSON.stringify([...products]))
+        if(!bag || !products) return
+        // localStorage.setItem('bag', JSON.stringify([...bag, product])),
+        // localStorage.setItem('products', JSON.stringify([...products]))
     };
 
     resetLocalStorage = (products, bag) => {
-        localStorage.removeItem('products'),
-        localStorage.setItem('products', JSON.stringify([...products])),
-        localStorage.removeItem('bag'),
-        localStorage.setItem('bag', JSON.stringify([...bag]))
+        // localStorage.removeItem('products'),
+        // localStorage.setItem('products', JSON.stringify([...products])),
+        // localStorage.removeItem('bag'),
+        // localStorage.setItem('bag', JSON.stringify([...bag]))
     };
 
     removeLocalStorage = () => {
-        localStorage.removeItem('bag'),
-        localStorage.removeItem('products')
+        // localStorage.removeItem('bag'),
+        // localStorage.removeItem('products')
     };
 
     // Method that select the given product and returns it
@@ -126,7 +129,7 @@ class ClothesProvider extends Component {
     };
 
     // Add items to bag method
-    addToBag = (id) => {
+    addToBag = (id, history) => {
         // 1. Make a copy of products in state
         let copyProducts = [...this.state.products]
 
@@ -154,8 +157,9 @@ class ClothesProvider extends Component {
                 bag: [...this.state.bag, product]
             }
         }, () => {
-            this.addLocalStorage(copyBagArr, copyProducts, product),
+            // this.addLocalStorage(copyBagArr, copyProducts, product),
             this.calcTotals()
+            history.push('/bag')
         }
     )//() => console.log({...this.state}))            
 };
@@ -188,7 +192,7 @@ class ClothesProvider extends Component {
                 products: [...copyProducts]
             }
         }, () => {
-            this.resetLocalStorage(copyProducts, copyBag),
+            // this.resetLocalStorage(copyProducts, copyBag),
             this.calcTotals()
         } 
         
@@ -291,8 +295,8 @@ class ClothesProvider extends Component {
                     bag: [...copyBag]
                 }
             }, () => {
-                localStorage.removeItem('bag'),
-                localStorage.setItem('bag', JSON.stringify([...copyBag])),
+                // localStorage.removeItem('bag'),
+                // localStorage.setItem('bag', JSON.stringify([...copyBag])),
                 this.calcTotals()
             }
         )

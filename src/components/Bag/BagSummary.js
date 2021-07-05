@@ -8,11 +8,11 @@ const BagSummary = (props) => {
 
     return (
         <div className="bag__payment">
-            <h1 className="bag__item-subtotal">subtotal: {bagSubTotal}$</h1>
-            <h1 className="bag__item-tax">tax: {bagTax}$</h1>
-            <h1 className="bag__item-total">total: {bagTotals}$</h1>
+            {/* <h1 className="bag__item-subtotal">: 17$</h1> */}
+            <h1 className="bag__item-tax">pdv: 4$</h1>
+            <h1 className="bag__item-total">ukupno: 21$</h1>
             <Button name="bag__item-clear" btnType="alt" 
-            clicked={() => clearBag()}>clear cart<i className="fas fa-exclamation-triangle"></i></Button>
+            clicked={() => clearBag()}>Očisti korpu<i className="fas fa-exclamation-triangle"></i></Button>
             <PayPallButton total={bagTotals} clearBag={clearBag} history={props.history}/>
         </div> 
     )

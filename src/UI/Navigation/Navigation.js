@@ -15,14 +15,14 @@ const Navigation = () => {
             <ul className={'nav__routes d-flex'}>
                 <li className={'nav__route-home u-capitalize-text'}>
                     <Link to="/clothes">
-                            explore
+                            Istraži
                         <i className="fas fa-search"></i>
                     </Link>
                 </li>
 
                 <li className={'nav__route-home u-capitalize-text'}>
                     <Link to="/discount">
-                            discount
+                            Popust
                         <i className="fas fa-search-dollar"></i>
                     </Link>
                 </li>
@@ -31,6 +31,7 @@ const Navigation = () => {
             <Link to="/bag">
                 <Button name="btn__bag">
                     <i className="fas fa-shopping-bag"></i>
+                    {/* <span>3</span> */}
                 </Button>
             </Link>
         </nav>
