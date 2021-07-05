@@ -5,7 +5,7 @@ export const items = [
         },
         
         fields: {
-            title: 'Black t-shirt',
+            title: 'Crna majica',
             price: 20,
             material: 'cotton',
             image: {
